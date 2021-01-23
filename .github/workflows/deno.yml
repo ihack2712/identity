@@ -1,0 +1,19 @@
+name: "Deno Workflow"
+
+on: push
+
+jobs:
+  deno:
+    name: "Deno"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Checkout Code"
+        uses: "actions/checkout@v2"
+      - name: "Setup Deno"
+        uses: "denolibs/setup-deno@v2"
+        with:
+          deno-version: "v1.x"
+      - run: |
+          deno fmt --check
+          deno lint --unstable
+          deno test
