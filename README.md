@@ -53,7 +53,7 @@ import { Lifeline } from "https://deno.land/x/identity/mod.ts";
 
 const lifeline = Lifeline.create(signedIdentity, (Date.now() / 1000) + 604800);
 
-lifeline.validate({signed});
+lifeline.validate({ signed });
 
 const lifeline = new Lifeline(req.headers["Refresh-Token"]);
 // ^ Assuming base64 string or Uint8Array
